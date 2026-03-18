@@ -1,22 +1,199 @@
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-top: 3rem;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ishita Das | AI/ML Engineer</title>
 
-.contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
+    <link rel="stylesheet" href="styles.css">
 
-.contact-form input,
-.contact-form textarea {
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid var(--grid-line);
-    background: var(--bg-color);
-    font-family: var(--font-body);
-    outline: none;
-}
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="grid-lines"></div>
+    <div class="editorial-circle"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">I.D</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#focus">Focus</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- Hero Section -->
+        <section id="hero">
+
+            <div class="hero-content">
+                <span class="greeting">Hi, I'm</span>
+
+                <h1>Ishita Das 👋</h1>
+
+                <p class="role">AI / ML Engineer & Computer Science Student</p>
+
+                <p class="tagline">
+                    Building practical AI systems focused on real-world intelligence and deployment.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn primary-btn">Get In Touch</a>
+                    <a href="#about" class="btn secondary-btn">Know More</a>
+                </div>
+            </div>
+
+            <div class="hero-graphic">
+
+                <figure>
+                    <img src="portfolio image.jpeg" alt="Ishita Das" class="profile-pic">
+                </figure>
+
+                <div class="code-window">
+                    <div class="window-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+
+<pre><code>class Ishita {
+  constructor() {
+    this.name = "Ishita Das";
+    this.focus = ["AI", "Machine Learning"];
+  }
+
+  build() {
+    return "Practical AI Systems";
+  }
+}</code></pre>
+
+                </div>
+            </div>
+
+        </section>
+
+        <!-- About -->
+        <section id="about" class="glass-section">
+
+            <h2 class="section-title">About Me</h2>
+
+            <p class="about-text">
+                I am a B.Tech Computer Science student focused on Artificial Intelligence and Machine Learning.
+                I work on building practical AI systems that solve real-world problems using data,
+                automation, and intelligent decision-making.
+            </p>
+
+            <div class="motto-box glow-hover">
+                <p>"Transforming ideas into intelligent systems through AI."</p>
+            </div>
+
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+
+            <h2 class="section-title">Technical Skills</h2>
+
+            <div class="skills-grid" id="skills-container">
+                <!-- JavaScript inject করবে -->
+            </div>
+
+        </section>
+
+        <!-- Focus -->
+        <section id="focus" class="bento-grid">
+
+            <div class="bento-item glass-card glow-hover">
+                <h3>Areas of Interest</h3>
+                <ul>
+                    <li>Machine Learning & Deep Learning</li>
+                    <li>Natural Language Processing</li>
+                    <li>Computer Vision</li>
+                    <li>Predictive Analytics</li>
+                    <li>AI Product Development</li>
+                </ul>
+            </div>
+
+            <div class="bento-item glass-card glow-hover">
+                <h3>Current Focus</h3>
+                <ul>
+                    <li>Building end-to-end AI projects</li>
+                    <li>Learning production-grade ML deployment</li>
+                    <li>Exploring real-world AI problem solving</li>
+                    <li>Improving model optimization and accuracy</li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="glass-section">
+
+            <h2 class="section-title">Let's Connect</h2>
+
+            <p class="text-center">
+                I'm always open to discussing AI projects and meaningful technical collaborations.
+            </p>
+
+            <div class="contact-container">
+
+                <div class="contact-info">
+                    <h3>Reach Out Directly</h3>
+
+                    <div class="social-links">
+
+                        <a href="mailto:ishita0305das@gmail.com" class="social-btn">
+                            <i class="fa-solid fa-envelope"></i> Email
+                        </a>
+
+                        <a href="https://github.com/Ishitadas03" target="_blank" class="social-btn">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/ishita-das-808a57313" target="_blank" class="social-btn">
+                            <i class="fa-brands fa-linkedin"></i> LinkedIn
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="contact-form">
+
+                    <h3>Send a Message</h3>
+
+                    <form id="portfolio-form">
+
+                        <input type="text" placeholder="Your Name" required>
+
+                        <input type="email" placeholder="Your Email" required>
+
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+
+                        <button type="submit" class="btn primary-btn">Send Message</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 Ishita Das • Built with design + intelligence</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
