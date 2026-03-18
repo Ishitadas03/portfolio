@@ -1,0 +1,13 @@
+Write-Host "Starting Frontend Server on Port 8080..."
+Start-Process -FilePath "python" -ArgumentList "-m http.server 8080" -WindowStyle Normal
+
+Write-Host "Starting Backend FastAPI Server on Port 8000..."
+Start-Process -FilePath "python" -ArgumentList "-m uvicorn main:app --reload --port 8000" -WorkingDirectory "backend" -WindowStyle Normal
+
+Write-Host "Waiting for servers to start..."
+Start-Sleep -Seconds 2
+
+Write-Host "Opening Application in browser..."
+Start-Process "http://localhost:8080"
+
+Write-Host "Servers are running in separate backend windows. You can stop them by closing their terminals."
