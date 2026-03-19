@@ -257,12 +257,40 @@ grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
 gap: 2rem;
 }
 
+.skill-category {
+min-height: 230px;
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+}
+
+.skill-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 0.8rem;
+margin-top: 1rem;
+align-items: center;
+}
+
 .skill-tag {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 0.45rem;
+white-space: nowrap;
+width: fit-content;
+min-width: max-content;
 background: rgba(16,185,129,0.08);
 border: 1px solid rgba(16,185,129,0.12);
-padding: 0.7rem 1.4rem;
-border-radius: 50px;
+padding: 0.65rem 1rem;
+border-radius: 999px;
+font-size: 0.88rem;
+line-height: 1;
+}
+
+.skill-tag i {
 font-size: 0.85rem;
+flex-shrink: 0;
 }
 
 /* Bento */
