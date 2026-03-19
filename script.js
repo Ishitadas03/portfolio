@@ -1,116 +1,414 @@
-const skillsData = [
-    {
-        title: "Programming Languages",
-        icon: "fa-code",
-        color: "var(--primary)",
-        skills: ["Python", "SQL", "Java", "C", "HTML", "CSS"]
-    },
-    {
-        title: "AI / ML Libraries",
-        icon: "fa-robot",
-        color: "var(--accent)",
-        skills: ["NumPy", "Pandas", "Scikit-learn", "TensorFlow", "PyTorch"]
-    },
-    {
-        title: "Data Visualization",
-        icon: "fa-chart-pie",
-        color: "var(--secondary)",
-        skills: ["Matplotlib", "Seaborn"]
-    },
-    {
-        title: "Backend & Deployment",
-        icon: "fa-server",
-        color: "var(--primary)",
-        skills: ["FastAPI", "REST API", "Docker"]
-    },
-    {
-        title: "Databases",
-        icon: "fa-database",
-        color: "var(--accent)",
-        skills: ["PostgreSQL", "MySQL", "MongoDB"]
-    },
-    {
-        title: "Tools",
-        icon: "fa-wrench",
-        color: "var(--secondary)",
-        skills: ["Git", "GitHub", "Jupyter Notebook", "VS Code", "Anaconda"]
+:root {
+    --bg-color: #D8D7CC;
+    --accent: #9EAE8B;
+    --text-dark: #111111;
+    --card-bg: #F4F2EA;
+    --btn-color: #5F7C45;
+    --grid-line: #E8E5DA;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    background-image: radial-gradient(circle at top left, rgba(255,255,255,0.15), transparent 40%);
+}
+
+/* Background */
+.grid-lines {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(to right, var(--grid-line) 1px, transparent 1px);
+    background-size: 16vw 100%;
+    z-index: -2;
+}
+
+.editorial-circle {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.25;
+    filter: blur(50px);
+    z-index: -1;
+}
+
+/* Typography */
+h1, h2, h3, .logo {
+    font-family: var(--font-heading);
+}
+
+.section-title {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 1.2;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3%;
+    background: var(--card-bg);
+    border-radius: 50px;
+    position: fixed;
+    width: 85%;
+    max-width: 1000px;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    box-shadow: 0 10px 30px rgba(17,17,17,0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: var(--btn-color);
+    transition: 0.3s;
+}
+
+/* Main */
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 180px 5% 4rem;
+}
+
+/* Sections */
+.glass-section,
+.glass-card,
+.skill-category {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    box-shadow: 0 10px 40px rgba(17,17,17,0.04);
+}
+
+.glass-card:hover,
+.glass-section:hover {
+    transform: translateY(-5px);
+    transition: 0.4s ease;
+}
+
+/* Hero */
+#hero {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.greeting {
+    color: var(--btn-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#hero h1 {
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    line-height: 1.1;
+    margin: 1rem 0;
+}
+
+.role {
+    font-size: 1.8rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+    max-width: 450px;
+}
+
+/* Buttons */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-btn {
+    background: var(--btn-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #4A6337;
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+
+.secondary-btn {
+    border: 1px solid var(--text-dark);
+    color: var(--text-dark);
+}
+
+.secondary-btn:hover {
+    background: var(--text-dark);
+    color: var(--card-bg);
+    transition: 0.3s;
+}
+
+/* Hero Graphic */
+.hero-graphic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.profile-pic {
+    width: 300px;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 180px 180px 0 0;
+    border: 10px solid var(--card-bg);
+    box-shadow: 0 20px 50px rgba(17,17,17,0.08);
+}
+
+.profile-pic:hover {
+    transform: scale(1.02);
+    transition: 0.4s ease;
+}
+
+/* Code Window */
+.code-window {
+    background: #FFFCF5;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(17,17,17,0.05);
+}
+
+.window-header {
+    background: #E8E5DA;
+    padding: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.red { background: #E1A9A9; }
+.yellow { background: #E1D2A9; }
+.green { background: #B4E1A9; }
+
+.code-window pre {
+    padding: 1.5rem;
+    font-size: 0.85rem;
+}
+
+/* About */
+.about-text {
+    text-align: center;
+    max-width: 750px;
+    margin: auto;
+    font-size: 1.2rem;
+}
+
+.motto-box {
+    text-align: center;
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--btn-color);
+}
+
+/* Skills */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.skill-category h3 {
+    margin-bottom: 1rem;
+}
+
+.skill-tag {
+    background: var(--bg-color);
+    border: 1px solid var(--grid-line);
+    padding: 0.7rem 1.4rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+}
+
+.skill-tag:hover {
+    background: var(--btn-color);
+    color: white;
+    transition: 0.3s;
+}
+
+/* Bento */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+}
+
+.bento-item ul {
+    list-style: none;
+}
+
+.bento-item ul li {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.bento-item ul li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--btn-color);
+}
+
+/* Contact */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--grid-line);
+    background: var(--bg-color);
+    font-family: var(--font-body);
+    outline: none;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.social-btn {
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border: 1px solid var(--text-dark);
+    border-radius: 50px;
+    color: var(--text-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.social-btn:hover {
+    background: var(--text-dark);
+    color: var(--card-bg);
+    transition: 0.3s;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 3rem;
+    border-top: 1px solid var(--grid-line);
+    margin-top: 4rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    #hero {
+        grid-template-columns: 1fr;
+        text-align: center;
     }
-];
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Inject Skills dynamically
-    const skillsContainer = document.getElementById('skills-container');
-
-    if (skillsContainer) {
-        skillsData.forEach((category, index) => {
-            const section = document.createElement('div');
-            section.className = 'skill-category glow-hover';
-            section.style.animationDelay = `${index * 0.1}s`;
-            
-            let tagsHTML = category.skills.map(skill => `<span class="skill-tag">${skill}</span>`).join('');
-            
-            section.innerHTML = `
-                <h3 style="color: ${category.color}"><i class="fa-solid ${category.icon}"></i> ${category.title}</h3>
-                <div class="skill-tags">
-                    ${tagsHTML}
-                </div>
-            `;
-            skillsContainer.appendChild(section);
-        });
+    .hero-buttons {
+        justify-content: center;
     }
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Contact Form Submission
-    const form = document.getElementById('portfolio-form');
-    const statusMsg = document.getElementById('form-status');
-    const submitBtn = document.getElementById('submit-btn');
-
-    if (form) {
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-
-            submitBtn.textContent = 'Sending...';
-            submitBtn.style.opacity = '0.7';
-
-            try {
-                const response = await fetch('http://localhost:8000/contact', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, email, message })
-                });
-
-                const data = await response.json();
-
-                if (response.ok && data.status === 'success') {
-                    statusMsg.textContent = 'Message securely saved to your local SQLite database! ✅';
-                    statusMsg.style.color = 'var(--btn-color)';
-                    form.reset();
-                } else {
-                    throw new Error('Failed to send message');
-                }
-            } catch (error) {
-                statusMsg.textContent = '❌ Failed to connect to server. Ensure FastAPI is running on port 8000.';
-                statusMsg.style.color = '#e11d48'; // Red
-            } finally {
-                submitBtn.textContent = 'Send Message';
-                submitBtn.style.opacity = '1';
-                setTimeout(() => {
-                    statusMsg.textContent = '';
-                }, 5000);
-            }
-        });
+    .bento-grid,
+    .contact-container {
+        grid-template-columns: 1fr;
     }
-});
+}
+
+@media (max-width: 600px) {
+    #hero h1 {
+        font-size: 3rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    nav {
+        border-radius: 15px;
+    }
+
+    .glass-section,
+    .glass-card,
+    .skill-category {
+        padding: 2rem 1.2rem;
+    }
+}
