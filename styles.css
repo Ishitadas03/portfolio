@@ -517,3 +517,41 @@ transition: letter-spacing 0.25s ease;
 .project-link:hover {
 letter-spacing: 1px;
 }
+/* ---------- Skills Animation ---------- */
+
+.skill-category {
+opacity: 0;
+transform: translateY(25px);
+animation: skillReveal 0.8s ease forwards;
+}
+
+.skill-category:nth-child(1) {
+animation-delay: 0.1s;
+}
+
+.skill-category:nth-child(2) {
+animation-delay: 0.2s;
+}
+
+.skill-category:nth-child(3) {
+animation-delay: 0.3s;
+}
+
+.skill-category:nth-child(4) {
+animation-delay: 0.4s;
+}
+
+.skill-category:nth-child(5) {
+animation-delay: 0.5s;
+}
+
+.skill-category:nth-child(6) {
+animation-delay: 0.6s;
+}
+
+@keyframes skillReveal {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
