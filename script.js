@@ -1,4 +1,3 @@
-
 /* ---------- Skills Scroll Animation ---------- */
 
 const skillCards = document.querySelectorAll(".skill-category");
@@ -19,7 +18,11 @@ skillCards.forEach(card => {
 observer.observe(card);
 });
 
-/* ---------- Contact Form Interaction ---------- */
+/* ---------- EmailJS Setup ---------- */
+
+emailjs.init("YOUR_PUBLIC_KEY");
+
+/* ---------- Contact Form Send ---------- */
 
 const form = document.getElementById("portfolio-form");
 
@@ -29,13 +32,27 @@ e.preventDefault();
 
     const button = form.querySelector("button");
 
-    button.textContent = "Message Sent ✓";
+    emailjs.sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        "#portfolio-form"
+    )
+    .then(() => {
+        button.textContent = "Message Sent ✓";
 
-    setTimeout(() => {
-        button.textContent = "Send Message";
-    }, 2500);
+        setTimeout(() => {
+            button.textContent = "Send Message";
+        }, 2500);
 
-    form.reset();
+        form.reset();
+    })
+    .catch(() => {
+        button.textContent = "Failed";
+
+        setTimeout(() => {
+            button.textContent = "Send Message";
+        }, 2500);
+    });
 });
 
 }
