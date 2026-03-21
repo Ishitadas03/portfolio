@@ -33,7 +33,7 @@ e.preventDefault();
     const button = form.querySelector("button");
 
     emailjs.sendForm(
-        "YOUR_SERVICE_ID",
+        "service_89726",
         "YOUR_TEMPLATE_ID",
         "#portfolio-form"
     )
