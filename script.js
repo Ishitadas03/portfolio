@@ -1,5 +1,4 @@
 /* ---------- Skills Scroll Animation ---------- */
-
 const skillCards = document.querySelectorAll(".skill-category");
 
 const observer = new IntersectionObserver((entries) => {
@@ -16,43 +15,37 @@ threshold: 0.2
 
 skillCards.forEach(card => observer.observe(card));
 
-/* ---------- EmailJS Init ---------- */
-
-window.addEventListener("load", function () {
 emailjs.init("UIIULsXuZYZ7_u_jG");
 
 const form = document.getElementById("portfolio-form");
 
-if (form) {
-    form.addEventListener("submit", function (e) {
-        e.preventDefault();
+form.addEventListener("submit", function(e) {
+e.preventDefault();
 
-        const button = form.querySelector("button");
+const button = form.querySelector("button");
 
-        emailjs.sendForm(
-            "service_89726",
-            "template_jitefbu",
-            form
-        )
-        .then(function () {
-            button.textContent = "Message Sent ✓";
+button.textContent = "Sending...";
 
-            setTimeout(() => {
-                button.textContent = "Send Message";
-            }, 2500);
+emailjs.send("service_89726", "template_jitefbu", {
+user_name: form.user_name.value,
+user_email: form.user_email.value,
+message: form.message.value
+})
+.then(() => {
+button.textContent = "Message Sent ✓";
+form.reset();
 
-            form.reset();
-        })
-        .catch(function (error) {
-            console.log("EmailJS Error:", error);
+setTimeout(() => {
+button.textContent = "Send Message";
+}, 2500);
+})
+.catch((error) => {
+console.log(error);
 
-            button.textContent = "Failed";
+button.textContent = "Failed";
 
-            setTimeout(() => {
-                button.textContent = "Send Message";
-            }, 2500);
-        });
-    });
-}
-
+setTimeout(() => {
+button.textContent = "Send Message";
+}, 2500);
+});
 });
