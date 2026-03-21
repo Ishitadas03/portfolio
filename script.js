@@ -1,4 +1,5 @@
-/* ---------- Skills Scroll Animation ---------- */
+document.addEventListener("DOMContentLoaded", function () {
+
 const skillCards = document.querySelectorAll(".skill-category");
 
 const observer = new IntersectionObserver((entries) => {
@@ -19,19 +20,19 @@ emailjs.init("UIIULsXuZYZ7_u_jG");
 
 const form = document.getElementById("portfolio-form");
 
-form.addEventListener("submit", function(e) {
+if (form) {
+form.addEventListener("submit", function (e) {
 e.preventDefault();
 
 const button = form.querySelector("button");
-
 button.textContent = "Sending...";
 
 emailjs.send("service_89726", "template_jitefbu", {
-user_name: form.user_name.value,
-user_email: form.user_email.value,
-message: form.message.value
+user_name: form.querySelector('[name="user_name"]').value,
+user_email: form.querySelector('[name="user_email"]').value,
+message: form.querySelector('[name="message"]').value
 })
-.then(() => {
+.then(function () {
 button.textContent = "Message Sent ✓";
 form.reset();
 
@@ -39,8 +40,8 @@ setTimeout(() => {
 button.textContent = "Send Message";
 }, 2500);
 })
-.catch((error) => {
-console.log(error);
+.catch(function (error) {
+console.log("EmailJS Error:", error);
 
 button.textContent = "Failed";
 
@@ -48,4 +49,7 @@ setTimeout(() => {
 button.textContent = "Send Message";
 }, 2500);
 });
+});
+}
+
 });
