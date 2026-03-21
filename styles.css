@@ -437,3 +437,83 @@ nav {
 }
 
   }
+/* ---------- Micro Animations ---------- */
+
+/* Button breathing glow */
+.primary-btn {
+animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+0%, 100% {
+box-shadow: 0 10px 25px rgba(16,185,129,0.18);
+}
+50% {
+box-shadow: 0 14px 35px rgba(16,185,129,0.30);
+}
+}
+
+/* Skill pills micro lift */
+.skill-tag {
+transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.skill-tag:hover {
+transform: translateY(-3px);
+border-color: rgba(16,185,129,0.30);
+}
+
+/* Section title fade-up */
+.section-title {
+animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+from {
+opacity: 0;
+transform: translateY(18px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Navbar underline animation */
+.nav-links a {
+position: relative;
+}
+
+.nav-links a::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: -4px;
+width: 0;
+height: 1px;
+background: #10B981;
+transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+width: 100%;
+}
+
+/* Social button smooth hover */
+.social-btn {
+transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.social-btn:hover {
+transform: translateY(-3px);
+border-color: rgba(16,185,129,0.30);
+}
+
+/* Project link subtle move */
+.project-link {
+transition: letter-spacing 0.25s ease;
+}
+
+.project-link:hover {
+letter-spacing: 1px;
+}
