@@ -14,47 +14,45 @@ entry.target.classList.add("show");
 threshold: 0.2
 });
 
-skillCards.forEach(card => {
-observer.observe(card);
-});
+skillCards.forEach(card => observer.observe(card));
 
-/* ---------- EmailJS Setup ---------- */
+/* ---------- EmailJS Init ---------- */
 
+window.addEventListener("load", function () {
 emailjs.init("UIIULsXuZYZ7_u_jG");
-
-/* ---------- Contact Form Send ---------- */
 
 const form = document.getElementById("portfolio-form");
 
 if (form) {
-form.addEventListener("submit", function(e) {
-e.preventDefault();
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
 
-    const button = form.querySelector("button");
+        const button = form.querySelector("button");
 
-    emailjs.sendForm(
-        "service_89726",
-        "template_jitefbu",
-        "#portfolio-form"
-    )
-    .then(() => {
-        button.textContent = "Message Sent ✓";
+        emailjs.sendForm(
+            "service_89726",
+            "template_jitefbu",
+            form
+        )
+        .then(function () {
+            button.textContent = "Message Sent ✓";
 
-        setTimeout(() => {
-            button.textContent = "Send Message";
-        }, 2500);
+            setTimeout(() => {
+                button.textContent = "Send Message";
+            }, 2500);
 
-        form.reset();
-    })
-    .catch((error) => {
-        console.log(error);
+            form.reset();
+        })
+        .catch(function (error) {
+            console.log("EmailJS Error:", error);
 
-        button.textContent = "Failed";
+            button.textContent = "Failed";
 
-        setTimeout(() => {
-            button.textContent = "Send Message";
-        }, 2500);
+            setTimeout(() => {
+                button.textContent = "Send Message";
+            }, 2500);
+        });
     });
-});
-
 }
+
+});
