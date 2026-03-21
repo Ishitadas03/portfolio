@@ -20,7 +20,7 @@ observer.observe(card);
 
 /* ---------- EmailJS Setup ---------- */
 
-emailjs.init("YOUR_PUBLIC_KEY");
+emailjs.init("UIIULsXuZYZ7_u_jG");
 
 /* ---------- Contact Form Send ---------- */
 
@@ -34,7 +34,7 @@ e.preventDefault();
 
     emailjs.sendForm(
         "service_89726",
-        "YOUR_TEMPLATE_ID",
+        "template jitefbu",
         "#portfolio-form"
     )
     .then(() => {
