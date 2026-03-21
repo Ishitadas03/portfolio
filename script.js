@@ -34,7 +34,7 @@ e.preventDefault();
 
     emailjs.sendForm(
         "service_89726",
-        "template jitefbu",
+        "template_jitefbu",
         "#portfolio-form"
     )
     .then(() => {
@@ -46,7 +46,9 @@ e.preventDefault();
 
         form.reset();
     })
-    .catch(() => {
+    .catch((error) => {
+        console.log(error);
+
         button.textContent = "Failed";
 
         setTimeout(() => {
