@@ -412,3 +412,21 @@ footer {
         padding: 2rem 1.2rem;
     }
 }
+
+const skillCards = document.querySelectorAll(".skill-category");
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach((entry, index) => {
+if (entry.isIntersecting) {
+setTimeout(() => {
+entry.target.classList.add("show");
+}, index * 150);
+}
+});
+}, {
+threshold: 0.2
+});
+
+skillCards.forEach(card => {
+observer.observe(card);
+});
